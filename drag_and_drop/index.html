@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/drag_and_drop.css" />
+		<script src="js/drag_and_drop.js"></script>
+	</head>
+
+	<body>
+		<!--组件区-->
+		<div id="assembly_area" class="bsbb">
+			<!--拖拽前得到的-->
+			<p class="">组件</p>
+			<div id="drag_assembly_wrap">
+				<ul id="drag_assembly" class="clearfix bsbb">
+					<li draggable="true">
+						<p>搜索</p>
+					</li>
+					<li draggable="true">
+						<p>轮播图</p>
+					</li>
+					<li draggable="true">
+						<p>按钮</p>
+					</li>
+					<li draggable="true">
+						<p>图片</p>
+					</li>
+					<li draggable="true">
+						<p>链接</p>
+					</li>
+					<li draggable="true">
+						<p>标题</p>
+					</li>
+					<li draggable="true">
+						<p>双栏</p>
+					</li>
+				</ul>
+			</div>
+			<!--拖拽后得到的-->
+			<div id="final_assembly" class="dn">
+				<div draggable="true" class="search">
+					<input type="button" class="bsbb" value="请输入搜索内容" />
+				</div>
+				<div draggable="true" class="switch">
+
+				</div>
+				<div draggable="true" class="btn">
+					<button class="btn-1">按钮</button>
+				</div>
+				<div draggable="true" class="images">
+
+				</div>
+				<div draggable="true" class="alink">
+					<input disabled type="text" class="bsbb" value="链接文字" />
+				</div>
+				<div draggable="true" class="tit">
+					<input disabled type="text" class="bsbb" value="标题文字" />
+				</div>
+				<div draggable="true" class="double_column clearfix">
+					<div data-type="1" class="pr" style="border-right: 1px solid black;">
+						<!--<p>5641156</p>-->
+					</div>
+					<div data-type="1" class="pr"></div>
+				</div>
+			</div>
+		</div>
+		<!--目标区-->
+		<div id="target_area_wrap">
+			<div class="target_area_cover">
+				<div id="target_area">
+					
+				</div>
+			</div>
+		</div>
+		<!--样式区-->
+		<div id="change_style_area">
+			<div class="search dn">
+				search
+			</div>
+			<div class="switch dn">
+				switch
+			</div>
+			<div class="btn dn">
+				btn
+				<button data-change="0" class="btn-1">按钮</button>
+				<button data-change="0" class="btn-2">按钮</button>
+				<button data-change="0" class="btn-3">按钮</button>
+			</div>
+			<div class="images dn">
+				images
+			</div>
+			<div class="alink dn">
+				alink
+			</div>
+			<div class="tit dn">
+				tit
+			</div>
+			<div class="dn">
+				double_column
+			</div>
+		</div>
+		<!--空白框-->
+		<div class="dn">
+			<div class="place-box"></div>
+		</div>
+
+		<script>
+			var drag = new Dragdrop({
+				drag_id: "drag_assembly",
+				final_id: "final_assembly",
+				target_id: "target_area",
+				style_id: "change_style_area"
+			}).init();
+			
+			
+			/*var right = document.getElementById("rightWrap");
+			var divdiv = document.getElementById("ul1");
+			var ul2 = document.getElementById("ul2");
+			var defau = document.getElementsByClassName("defau")[0];
+
+			var isPut = false;
+
+			for(var i = 0; i < divdiv.children.length; i++) {
+				divdiv.children[i].index = i;
+				divdiv.children[i].ondragstart = function(ev) {
+					console.log("开始拖拽");
+					ev.dataTransfer.setData("index", this.index);
+					isPut = false;
+				}
+				divdiv.children[i].ondrag = function(ev) {
+					//console.log("拖拽中");
+				}
+				divdiv.children[i].ondragend = function(ev) {
+					var right_de = right.getElementsByClassName("defau")[0];
+					if(!isPut && right_de) {
+						right.removeChild(right_de);
+					}
+					//console.log("拖拽结束");
+				}
+
+			}
+			//目标事件
+			right.ondragenter = function(ev) {
+				ev.preventDefault();
+				//console.log("第一次进入目标");
+				//console.log(ev);
+			}
+			right.ondragover = function(ev) {
+				ev.preventDefault();
+				var right_de = right.getElementsByClassName("defau")[0];
+
+				//console.log("再次进入目标,,,",ev);
+
+				if(ev.target != right) {
+					for(var i = 0; i < ev.path.length; i++) {
+						if(ev.path[i] == right) {
+							//console.log(ev.path[i-1]);
+							var difHeight = ev.clientY - ev.path[i - 1].offsetTop;
+							var ofHeight = ev.path[i - 1].offsetHeight / 2;
+
+							if(difHeight < ofHeight) {
+								right.insertBefore(defau, ev.path[i - 1]);
+								return;
+							}
+							if(ev.path[i - 1].nextElementSibling) {
+								right.insertBefore(defau, ev.path[i - 1].nextElementSibling);
+								return;
+							}
+							right.appendChild(defau);
+						}
+					}
+					return;
+				}
+				right.appendChild(defau);
+
+			}
+			right.ondragleave = function(ev) {
+				ev.preventDefault();
+			}
+			right.ondrop = function(ev) {
+				var index = ev.dataTransfer.getData('index');
+				var dv = ul2.children[index];
+				var cloneDv = dv.cloneNode(dv);
+				var right_de = right.getElementsByClassName("defau")[0];
+				right.replaceChild(cloneDv, right_de);
+				isPut = true;
+			}*/
+		
+		</script>
+
+	</body>
+
+</html>
