@@ -221,6 +221,14 @@
 						this.style.border = "2px dotted red";
 						_this.showStyle(this);
 					}
+					document.onclick = function() {
+						for(var i=0;i<_this.style_area.children.length;i++){
+							_this.style_area.children[i].style.display = "none";
+						}
+						for(var j=0;j<_this.doubleTarget.children.length;j++){
+							_this.doubleTarget.children[j].style.border = "none";
+						}
+					}
 					//开始拖拽
 					this.doubleTarget.children[i].ondragstart = function(ev){
 						for(var j=0;j<_this.doubleTarget.children.length;j++){
@@ -307,6 +315,7 @@
 					switch(changeClick.children[i].dataset.change){
 						case "0":
 							changeClick.children[i].onclick = function(){
+								ev.stopPropagation();
 								that.innerHTML = this.outerHTML;
 							}
 						break;
